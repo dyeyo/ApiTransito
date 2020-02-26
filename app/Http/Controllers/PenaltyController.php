@@ -42,7 +42,13 @@ class PenaltyController extends Controller
                 'message'=>'Faltan datos'
             ];
         }else{
-            $penalty = Penalty::create($request->all());
+            $penalty=new Penalty();
+            $penalty->cause=$request->cause;
+            $penalty->entry_date=$request->entry_date;
+            $penalty->state='1';
+            $penalty->person_id=$request->person_id;
+            $penalty->save();
+            //$penalty = Penalty::create($request->all());
             $data=[
                 'code'=>200,
                 'status'=>'success',

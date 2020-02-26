@@ -18,7 +18,7 @@ class CreatePenaltiesTable extends Migration
 
             $table->string('cause');
             $table->date('entry_date');
-            $table->integer('state')->nullable();
+            $table->integer('state')->nullable()->default(1);
             $table->bigInteger('person_id')->unsigned();
 
             $table->foreign('person_id')->references('id')->on('personas');
